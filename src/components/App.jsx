@@ -29,13 +29,13 @@ export class App extends Component {
     <>
       <Section title='Please leave feedback' >
        <FeedbackOptions option={Object.keys(this.state)} onLeaveFeedback={this.click} />
-       {this.allClick(this.state) === 0 ? (<Notification message="There is no feedback" />) : (<Statistics
+       <Statistics
          good={good}
          neutral={neutral}
          bad={bad}
          total={this.allClick(this.state)}
          positivePercentage={this.positivePercentage(this.state)}
-       />)}
+       />
       </Section>
     </>
   );
