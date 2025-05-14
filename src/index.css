@@ -1,6 +1,24 @@
 @import-normalize;
 /* bring in normalize.css styles */
 
+@keyframes colorShift {
+  0% {
+    background-image: linear-gradient(45deg, #f58529, #dd2a7b);
+  }
+  25% {
+    background-image: linear-gradient(45deg, #dd2a7b, #833ab4);
+  }
+  50% {
+    background-image: linear-gradient(45deg, #833ab4, #3c6e71);
+  }
+  75% {
+    background-image: linear-gradient(45deg, #3c6e71, #f58529);
+  }
+  100% {
+    background-image: linear-gradient(45deg, #f58529, #dd2a7b);
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,7 +26,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: yellowgreen;
+  background-color: #e0f7fa;
+  color: #004d99;
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
 }
 
 code {
@@ -16,12 +45,34 @@ code {
     monospace;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__date {
+}
+
+.header__date-text {
+  font-size: 24px;
+  font-weight: bold;
+
+  background-image: linear-gradient(45deg, #f58529, #dd2a7b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: colorShift 5s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+}
+
 .section__box {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   row-gap: 10px;
   max-width: 1100px;
-  margin: 0 auto;
 }
 
 button {
@@ -30,8 +81,36 @@ button {
   border: none;
 }
 
-button:hover {
-  background-color: rgb(83, 123, 193);
+.feedback__btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  margin: 4px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feedback__btn--good {
+  background-color: #4caf50;
+}
+.feedback__btn--good:hover {
+  background-color: #388e3c;
+}
+
+.feedback__btn--neutral {
+  background-color: #607d8b;
+}
+.feedback__btn--neutral:hover {
+  background-color: #455a64;
+}
+
+.feedback__btn--bad {
+  background-color: #f44336;
+}
+.feedback__btn--bad:hover {
+  background-color: #c62828;
 }
 
 .feedback__box {

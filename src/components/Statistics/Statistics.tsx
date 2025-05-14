@@ -1,6 +1,20 @@
-import Notification from 'components/Notification/Notification';
+import Notification from '../Notification/Notification';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+interface StatisticsProps {
+  good: number;
+  neutral: number;
+  bad: number;
+  total: number;
+  positivePercentage: number;
+}
+
+const Statistics: React.FC<StatisticsProps> = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) => {
   return total === 0 ? (
     <Notification message="There is no feedback" />
   ) : (
